@@ -1,0 +1,10 @@
+item,value,source,status
+Hourly 100 m wind speed and shortwave radiation 2023 at nine regional points,Open-Meteo archive (ERA5-based),open data,used
+Wind power curve (cubic 3-12 m/s; cut-out 25 m/s) and solar capacity factor (radiation/1000 x 0.85),assumed,assumption,assumption
+Capital costs wind 1300-1100 and solar 600-450 EUR/kW; electrolyser 800-500 EUR/kW; efficiency 65%; 8% over 20 years; O&M 2.5%,assumed,assumption,assumption
+Regional steel production (59 Mt in total) and ammonia (6.9 Mt),stylised,assumption (the EU ETS installation registry was not obtained),assumption
+Unit data per tonne (energy need; cost; CO2),see TECH in src/h2ind/model.py,assumed order of magnitude (hydrogen 1.67 MWh per tonne steel in the DRI route; 5.93 MWh per tonne ammonia),assumption
+CCS capacity (Mt CO2 per year) and hydrogen potential per region,stylised,assumption,assumption
+CO2 price 100/150/200 EUR/t; gas 40/35/35 EUR/MWh; electricity 70/60/55 EUR/MWh,assumed,assumption,assumption
+Blast furnace capacity left 80/40/10% of today; scrap-EAF at most 25% of regional steel,assumed,assumption,assumption
+Transport: hydrogen pipeline 4.5 EUR/MWh per 1000 km; steel 25; HBI 12; ammonia 8 EUR/t per 1000 km; distances great-circle x 1.2,assumed,assumption,assumption

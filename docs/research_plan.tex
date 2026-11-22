@@ -1,0 +1,30 @@
+\documentclass[10.5pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.9cm]{geometry}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3.5pt}
+\setlist{nosep,leftmargin=1.2em}
+\pagestyle{empty}
+\begin{document}
+{\Large\textbf{Research plan: hydrogen demand, location and infrastructure under industrial transition pathways}}\\[2pt]
+Mikhail Serikov \hfill Application: PhD position in hydrogen and industrial decarbonization, Department of Industrial Economics and Technology Management
+
+\textbf{Questions.} (1) How much hydrogen do steel, ammonia and other energy-intensive industries need under electrification, hydrogen and CCS pathways, and where? (2) How do changes in industrial structure and location, and in the competitiveness of energy-intensive industry, change the infrastructure that justifies a dedicated hydrogen market? (3) How do the answers differ between Europe and Norway?
+
+\textbf{Approach.} I build a multi-region, multi-period optimisation model in which industrial production, hydrogen production, transport, storage and trade are decided together, and in which the production structure of each industry (technology routes, trade of intermediate products such as direct reduced iron and ammonia, relocation) is endogenous. Regional hydrogen costs come from hourly renewable profiles. Uncertainty enters as a two-stage stochastic programme over the CO2 price, the cost of hydrogen and electrolysers, the availability of CCS and the policy pathway; the value of information and the regret of single-pathway plans show which infrastructure is robust. Solution methods from the operations research group (decomposition, scenario reduction) keep the multi-period, multi-scenario model tractable.
+
+\textbf{First results (own study, stylised regions, \texttt{h2-industry-europe}).} A static programme for nine regions, 59 Mt of steel and 6.9 Mt of ammonia, with hydrogen costs computed from 2023 wind and solar data, gives 69 TWh of hydrogen in 2050 for the steel of these regions and none in 2030. Restricting the system to hydrogen only or to CCS only raises the cost by 3.7\% and 3.9\%; without hydrogen pipelines the cost rises by 0.4\% because iron is reduced where hydrogen is cheap and shipped as HBI (21.8 Mt), so the infrastructure question is mainly a location question. Electrolytic ammonia is not chosen at a CO2 price of 200 EUR/t because the limited cheap hydrogen is worth more in steel. The data of this study are stylised and the plan replaces them with plant-level data (EU ETS installations, Norwegian industry) and measured capacity limits.
+
+\textbf{Work packages.}
+\begin{enumerate}
+\item \textbf{Industry module (year 1).} Plant-level data for steel, ammonia, methanol, refining and high-temperature heat in Europe and Norway; unit data and costs with ranges; calibration of today's production and trade.
+\item \textbf{Hydrogen supply, transport and storage (year 1 to 2).} Regional production with hourly profiles and representative periods; pipelines, shipping of ammonia, storage; capacity expansion over 2030 to 2050; first paper on hydrogen demand across pathways.
+\item \textbf{Structure and location (year 2).} Endogenous relocation and trade of intermediate products; competitiveness against imports; infrastructure needed to justify a dedicated hydrogen market; second paper.
+\item \textbf{Uncertainty and policy (year 2 to 3).} Two-stage and multi-stage stochastic versions, regret and value of information, decomposition; policy instruments as scenarios; third paper.
+\item \textbf{Norway and synthesis (year 3).} Norwegian regions with hydropower, CCS storage and export options; Norway against Europe; thesis.
+\end{enumerate}
+
+\textbf{Background.} M.Sc. in Ocean and Climate Physics (Universit\"at Hamburg); optimisation of a climate-economic model in GAMS and Python with value-of-information analysis; independent energy-system models in GAMS, Python and Pyomo (a TIMES-inspired model of Sweden with hydrogen and steel, a regional district heating model, weather-year capacity expansion); two-stage stochastic programmes in vehicle scheduling.
+\end{document}
