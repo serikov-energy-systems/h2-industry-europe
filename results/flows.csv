@@ -5,21 +5,29 @@ year,pathway,product,from,to,flow
 2030,CCS pathway (no electrolytic hydrogen),nh3,IT-North,ES-Iberia,0.5
 2030,hydrogen without pipelines,nh3,DE-North,PL-Silesia,1.8
 2030,hydrogen without pipelines,nh3,IT-North,ES-Iberia,0.5
-2040,all options,steel,NL-Rotterdam,DE-West,1.0725806451612903
+2030,"all options, seasonal storage",nh3,DE-North,PL-Silesia,1.8
+2030,"all options, seasonal storage",nh3,IT-North,ES-Iberia,0.5
+2030,"hydrogen without pipelines, seasonal storage",nh3,DE-North,PL-Silesia,1.8
+2030,"hydrogen without pipelines, seasonal storage",nh3,IT-North,ES-Iberia,0.5
 2040,all options,nh3,DE-North,PL-Silesia,1.8
 2040,all options,nh3,NL-Rotterdam,DE-West,0.6
 2040,all options,nh3,IT-North,ES-Iberia,0.5
 2040,all options,h2,NL-Rotterdam,SE-North,3.4875
-2040,all options,h2,NL-Rotterdam,DE-West,4.5375
+2040,all options,h2,NL-Rotterdam,DE-West,4.344070987980994
 2040,all options,h2,NL-Rotterdam,PL-Silesia,6.975
-2040,all options,h2,FR-North,ES-Iberia,13.95
-2040,hydrogen pathway (no CCS),h2,NL-Rotterdam,SE-North,2.2125
+2040,all options,h2,NL-Rotterdam,ES-Iberia,0.19342901201900467
+2040,all options,h2,FR-North,DE-West,1.8559290120190055
+2040,all options,h2,FR-North,ES-Iberia,13.756570987980995
+2040,hydrogen pathway (no CCS),h2,NL-Rotterdam,NO-West,0.174375
+2040,hydrogen pathway (no CCS),h2,NL-Rotterdam,SE-North,1.8253209879809944
 2040,hydrogen pathway (no CCS),h2,NL-Rotterdam,DE-North,5.8125
-2040,hydrogen pathway (no CCS),h2,FR-North,NO-West,0.34875
-2040,hydrogen pathway (no CCS),h2,FR-North,SE-North,1.275
-2040,hydrogen pathway (no CCS),h2,FR-North,DE-West,12.56375
-2040,hydrogen pathway (no CCS),h2,ES-Iberia,DE-West,1.38625
-2040,hydrogen pathway (no CCS),h2,ES-Iberia,PL-Silesia,6.975
+2040,hydrogen pathway (no CCS),h2,NL-Rotterdam,PL-Silesia,0.21280401201900467
+2040,hydrogen pathway (no CCS),h2,FR-North,NO-West,0.174375
+2040,hydrogen pathway (no CCS),h2,FR-North,SE-North,1.6621790120190056
+2040,hydrogen pathway (no CCS),h2,FR-North,DE-West,11.556702783617236
+2040,hydrogen pathway (no CCS),h2,FR-North,PL-Silesia,0.7942432043637577
+2040,hydrogen pathway (no CCS),h2,ES-Iberia,DE-West,2.3932972163827633
+2040,hydrogen pathway (no CCS),h2,ES-Iberia,PL-Silesia,5.967952783617237
 2040,hydrogen pathway (no CCS),h2,ES-Iberia,IT-North,11.625
 2040,CCS pathway (no electrolytic hydrogen),steel,NO-West,SE-North,2.25
 2040,CCS pathway (no electrolytic hydrogen),steel,DE-North,PL-Silesia,4.5
@@ -30,30 +38,63 @@ year,pathway,product,from,to,flow
 2040,CCS pathway (no electrolytic hydrogen),nh3,NL-Rotterdam,DE-West,0.6
 2040,CCS pathway (no electrolytic hydrogen),nh3,NL-Rotterdam,PL-Silesia,1.2333333333333332
 2040,CCS pathway (no electrolytic hydrogen),nh3,FR-North,ES-Iberia,0.5
-2040,hydrogen without pipelines,steel,NO-West,SE-North,1.0725806451612898
-2040,hydrogen without pipelines,hbi,NL-Rotterdam,SE-North,1.1774193548387102
-2040,hydrogen without pipelines,hbi,NL-Rotterdam,DE-West,4.0
+2040,hydrogen without pipelines,steel,NO-West,SE-North,2.25
+2040,hydrogen without pipelines,steel,NL-Rotterdam,DE-West,0.14474711228258816
+2040,hydrogen without pipelines,hbi,NL-Rotterdam,DE-West,3.8552528877174117
 2040,hydrogen without pipelines,hbi,NL-Rotterdam,PL-Silesia,4.5
 2040,hydrogen without pipelines,hbi,FR-North,ES-Iberia,9.0
 2040,hydrogen without pipelines,nh3,DE-North,PL-Silesia,1.8
 2040,hydrogen without pipelines,nh3,NL-Rotterdam,DE-West,0.6
 2040,hydrogen without pipelines,nh3,IT-North,ES-Iberia,0.5
+2040,"all options, seasonal storage",nh3,DE-North,PL-Silesia,1.8
+2040,"all options, seasonal storage",nh3,NL-Rotterdam,DE-West,0.6
+2040,"all options, seasonal storage",nh3,IT-North,ES-Iberia,0.5
+2040,"all options, seasonal storage",h2,NL-Rotterdam,SE-North,3.4875
+2040,"all options, seasonal storage",h2,NL-Rotterdam,DE-West,4.344070987980994
+2040,"all options, seasonal storage",h2,NL-Rotterdam,PL-Silesia,6.975
+2040,"all options, seasonal storage",h2,NL-Rotterdam,ES-Iberia,0.19342901201900467
+2040,"all options, seasonal storage",h2,FR-North,DE-West,1.8559290120190055
+2040,"all options, seasonal storage",h2,FR-North,ES-Iberia,13.756570987980995
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,NL-Rotterdam,NO-West,0.174375
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,NL-Rotterdam,SE-North,1.8253209879809944
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,NL-Rotterdam,DE-North,5.8125
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,NL-Rotterdam,PL-Silesia,0.21280401201900467
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,FR-North,NO-West,0.174375
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,FR-North,SE-North,1.6621790120190056
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,FR-North,DE-West,11.556702783617236
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,FR-North,PL-Silesia,0.7942432043637577
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,ES-Iberia,DE-West,2.3932972163827633
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,ES-Iberia,PL-Silesia,5.967952783617237
+2040,"hydrogen pathway (no CCS), seasonal storage",h2,ES-Iberia,IT-North,11.625
+2040,"hydrogen without pipelines, seasonal storage",steel,NO-West,SE-North,2.25
+2040,"hydrogen without pipelines, seasonal storage",steel,NL-Rotterdam,DE-West,0.14474711228258816
+2040,"hydrogen without pipelines, seasonal storage",hbi,NL-Rotterdam,DE-West,3.8552528877174117
+2040,"hydrogen without pipelines, seasonal storage",hbi,NL-Rotterdam,PL-Silesia,4.5
+2040,"hydrogen without pipelines, seasonal storage",hbi,FR-North,ES-Iberia,9.0
+2040,"hydrogen without pipelines, seasonal storage",nh3,DE-North,PL-Silesia,1.8
+2040,"hydrogen without pipelines, seasonal storage",nh3,NL-Rotterdam,DE-West,0.6
+2040,"hydrogen without pipelines, seasonal storage",nh3,IT-North,ES-Iberia,0.5
 2050,all options,nh3,DE-North,PL-Silesia,1.8
 2050,all options,nh3,IT-North,ES-Iberia,0.5
-2050,all options,h2,NL-Rotterdam,SE-North,2.2125
+2050,all options,h2,NL-Rotterdam,SE-North,1.8253209879809944
 2050,all options,h2,NL-Rotterdam,DE-North,5.8125
-2050,all options,h2,FR-North,SE-North,1.275
-2050,all options,h2,FR-North,DE-West,12.9125
-2050,all options,h2,ES-Iberia,DE-West,1.0375
-2050,all options,h2,ES-Iberia,PL-Silesia,6.975
+2050,all options,h2,NL-Rotterdam,PL-Silesia,0.3871790120190047
+2050,all options,h2,FR-North,SE-North,1.6621790120190056
+2050,all options,h2,FR-North,DE-West,11.731077783617236
+2050,all options,h2,FR-North,PL-Silesia,0.7942432043637577
+2050,all options,h2,ES-Iberia,DE-West,2.2189222163827633
+2050,all options,h2,ES-Iberia,PL-Silesia,5.793577783617238
 2050,all options,h2,ES-Iberia,IT-North,11.625
-2050,hydrogen pathway (no CCS),h2,NL-Rotterdam,SE-North,2.2125
+2050,hydrogen pathway (no CCS),h2,NL-Rotterdam,NO-West,0.174375
+2050,hydrogen pathway (no CCS),h2,NL-Rotterdam,SE-North,1.8253209879809944
 2050,hydrogen pathway (no CCS),h2,NL-Rotterdam,DE-North,5.8125
-2050,hydrogen pathway (no CCS),h2,FR-North,NO-West,0.34875
-2050,hydrogen pathway (no CCS),h2,FR-North,SE-North,1.275
-2050,hydrogen pathway (no CCS),h2,FR-North,DE-West,12.56375
-2050,hydrogen pathway (no CCS),h2,ES-Iberia,DE-West,1.38625
-2050,hydrogen pathway (no CCS),h2,ES-Iberia,PL-Silesia,6.975
+2050,hydrogen pathway (no CCS),h2,NL-Rotterdam,PL-Silesia,0.21280401201900467
+2050,hydrogen pathway (no CCS),h2,FR-North,NO-West,0.174375
+2050,hydrogen pathway (no CCS),h2,FR-North,SE-North,1.6621790120190056
+2050,hydrogen pathway (no CCS),h2,FR-North,DE-West,11.556702783617236
+2050,hydrogen pathway (no CCS),h2,FR-North,PL-Silesia,0.7942432043637577
+2050,hydrogen pathway (no CCS),h2,ES-Iberia,DE-West,2.3932972163827633
+2050,hydrogen pathway (no CCS),h2,ES-Iberia,PL-Silesia,5.967952783617237
 2050,hydrogen pathway (no CCS),h2,ES-Iberia,IT-North,11.625
 2050,CCS pathway (no electrolytic hydrogen),steel,NO-West,SE-North,2.25
 2050,CCS pathway (no electrolytic hydrogen),steel,DE-North,PL-Silesia,4.5
@@ -65,9 +106,38 @@ year,pathway,product,from,to,flow
 2050,CCS pathway (no electrolytic hydrogen),nh3,NL-Rotterdam,PL-Silesia,1.2333333333333332
 2050,CCS pathway (no electrolytic hydrogen),nh3,FR-North,ES-Iberia,0.5
 2050,hydrogen without pipelines,hbi,NL-Rotterdam,SE-North,2.25
-2050,hydrogen without pipelines,hbi,NL-Rotterdam,PL-Silesia,2.9274193548387104
-2050,hydrogen without pipelines,hbi,FR-North,DE-West,7.580645161290323
-2050,hydrogen without pipelines,hbi,FR-North,PL-Silesia,1.5725806451612898
+2050,hydrogen without pipelines,hbi,NL-Rotterdam,PL-Silesia,1.605252887717412
+2050,hydrogen without pipelines,hbi,FR-North,DE-West,5.386874559506111
+2050,hydrogen without pipelines,hbi,FR-North,PL-Silesia,2.8947471122825883
 2050,hydrogen without pipelines,hbi,ES-Iberia,IT-North,7.5
 2050,hydrogen without pipelines,nh3,DE-North,PL-Silesia,1.8
 2050,hydrogen without pipelines,nh3,IT-North,ES-Iberia,0.5
+2050,"all options, seasonal storage",nh3,DE-North,PL-Silesia,1.8
+2050,"all options, seasonal storage",nh3,IT-North,ES-Iberia,0.5
+2050,"all options, seasonal storage",h2,NL-Rotterdam,SE-North,1.8253209879809944
+2050,"all options, seasonal storage",h2,NL-Rotterdam,DE-North,5.8125
+2050,"all options, seasonal storage",h2,NL-Rotterdam,PL-Silesia,0.3871790120190047
+2050,"all options, seasonal storage",h2,FR-North,SE-North,1.6621790120190056
+2050,"all options, seasonal storage",h2,FR-North,DE-West,11.731077783617236
+2050,"all options, seasonal storage",h2,FR-North,PL-Silesia,0.7942432043637577
+2050,"all options, seasonal storage",h2,ES-Iberia,DE-West,2.2189222163827633
+2050,"all options, seasonal storage",h2,ES-Iberia,PL-Silesia,5.793577783617238
+2050,"all options, seasonal storage",h2,ES-Iberia,IT-North,11.625
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,NL-Rotterdam,NO-West,0.174375
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,NL-Rotterdam,SE-North,1.8253209879809944
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,NL-Rotterdam,DE-North,5.8125
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,NL-Rotterdam,PL-Silesia,0.21280401201900467
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,FR-North,NO-West,0.174375
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,FR-North,SE-North,1.6621790120190056
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,FR-North,DE-West,11.556702783617236
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,FR-North,PL-Silesia,0.7942432043637577
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,ES-Iberia,DE-West,2.3932972163827633
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,ES-Iberia,PL-Silesia,5.967952783617237
+2050,"hydrogen pathway (no CCS), seasonal storage",h2,ES-Iberia,IT-North,11.625
+2050,"hydrogen without pipelines, seasonal storage",hbi,NL-Rotterdam,SE-North,2.25
+2050,"hydrogen without pipelines, seasonal storage",hbi,NL-Rotterdam,PL-Silesia,2.9274193548387104
+2050,"hydrogen without pipelines, seasonal storage",hbi,FR-North,DE-West,7.580645161290323
+2050,"hydrogen without pipelines, seasonal storage",hbi,FR-North,PL-Silesia,1.5725806451612898
+2050,"hydrogen without pipelines, seasonal storage",hbi,ES-Iberia,IT-North,7.5
+2050,"hydrogen without pipelines, seasonal storage",nh3,DE-North,PL-Silesia,1.8
+2050,"hydrogen without pipelines, seasonal storage",nh3,IT-North,ES-Iberia,0.5

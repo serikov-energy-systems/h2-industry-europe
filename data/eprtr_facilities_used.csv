@@ -1,0 +1,64 @@
+kind,countryName,facilityName,city,Latitude,Longitude,co2_mt,region,km_to_hub
+steel 2(b),Germany,ArcelorMittal Bremen GmbH ,Bremen,53.1249,8.6867,2.16,DE-North,101.9009
+steel 2(b),Italy,Tenaris Dalmine - Stabilimento di Dalmine,DALMINE,45.6425,9.5969,0.3465,IT-North,71.8433
+steel 2(b),Poland,ArcelorMittal Poland S.A. Oddział Dąbrowa Górnicza,Dąbrowa Górnicza,50.3461,19.2844,3.57,PL-Silesia,20.8344
+steel 2(b),Italy,FERRIERE NORD STABILIMENTO DI OSOPPO,OSOPPO,46.2306,13.0778,0.174,IT-North,310.0567
+steel 2(b),Slovakia,U.S.Steel s.r.o.,Košice - Šaca,48.6178,21.1983,4.89,PL-Silesia,245.4036
+steel 2(b),Belgium,ARCELORMITTAL BELGIUM - GENT,Gent,51.1818,3.8187,3.58,NL-Rotterdam,82.1908
+steel 2(b),Czechia,Provozovna Třinec,Třinec,49.6881,18.6473,2.4889,PL-Silesia,72.5608
+steel 2(b),Germany,B.E.S. Brandenburger Elektrostahlwerke GmbH,Brandenburg an der Havel,52.402,12.4989,0.15,DE-North,213.7749
+steel 2(b),Germany,Peiner Träger GmbH ,Peine,52.3164,10.2382,0.118,DE-North,143.623
+steel 2(b),Germany,Georgsmarienhütte GmbH ,Georgsmarienhütte,52.2091,8.0495,0.164,DE-West,124.3983
+steel 2(b),France,ARCELORMITTAL FRANCE,HAYANGE,49.3316,6.0661,0.21,DE-West,235.8152
+steel 2(b),Germany,thyssenkrupp Steel Europe AG Werk Hamborn,Duisburg,51.4847,6.7317,1.257,DE-West,10.5363
+steel 2(b),Germany,Hüttenwerke Krupp Mannesmann GmbH,Duisburg,51.3682,6.7123,4.249,DE-West,7.0388
+steel 2(b),Germany,thyssenkrupp Steel Europe AG Werk Bruckhausen,Duisburg,51.4941,6.738,0.517,DE-West,11.3116
+steel 2(b),Austria,voestalpine Stahl GmbH,Linz,48.284,14.34,8.81,PL-Silesia,405.4224
+steel 2(b),Netherlands,Tata Steel IJmuiden BV,Velsen-Noord,52.4766,4.5922,5.82,NL-Rotterdam,72.3588
+steel 2(b),Poland,Huta Łaziska S.A. w upadłości układowej,Łaziska Górne,50.1494,18.8347,0.262,PL-Silesia,20.4575
+steel 2(b),Germany,Lech-Stahlwerke GmbH,Meitingen,48.5107,10.8602,0.124,IT-North,403.8677
+steel 2(b),Germany,thyssenkrupp Steel Europe AG Werk Beeckerwerth,Duisburg,51.4841,6.7066,0.758,DE-West,11.371
+steel 2(b),Spain,COMPAÑIA ESPAÑOLA DE LAMINACION (CELSA 1-4),Castellbisbal,41.4575,1.9795,0.13,ES-Iberia,240.212
+steel 2(b),Belgium,APERAM STAINLESS BELGIUM,Châtelet,50.416,4.5355,0.15,NL-Rotterdam,167.788
+steel 2(b),Czechia,Liberty Ostrava a.s.,Slezská Ostrava,49.7959,18.3058,2.4288,PL-Silesia,74.8293
+steel 2(b),Germany,ArcelorMittal Eisenhüttenstadt GmbH ,Eisenhüttenstadt,52.1661,14.6177,1.58,DE-North,348.3684
+steel 2(b),France,ARCELORMITTAL MEDITERRANEE,FOS SUR MER,43.4655,4.9366,6.447,IT-North,401.5423
+steel 2(b),Italy,ACCIAI SPECIALI TERNI S.P.A. - stabilimento di TERNI,TERNI,42.5667,12.6667,0.3465,IT-North,371.2018
+steel 2(b),Germany,Salzgitter Flachstahl GmbH ,Salzgitter,52.1548,10.4031,7.56,DE-North,162.9633
+steel 2(b),Belgium,APERAM GENK,Genk,50.9383,5.5002,0.139,DE-West,104.1542
+steel 2(b),Italy,ACCIAIERIE BERTOLI SAFAU SPA,Pozzuolo Del Friuli,46.0067,13.2534,0.239,IT-North,313.1614
+steel 2(b),Finland,"SSAB Europe Oy, Raahen terästehdas",Raahe,64.654,24.4288,2.18,SE-North,148.0731
+steel 2(b),Italy,STABILIMENTO DI TARANTO,TARANTO,40.5167,17.1999,4.7031,outside,801.6924
+steel 2(b),Romania,LIBERTY GALATI SA,Galati,45.4404,27.9722,3.22,outside,859.1443
+steel 2(b),Germany,DK Recycling und Roheisen GmbH,Duisburg,51.4223,6.742,0.476,DE-West,4.7249
+steel 2(b),Sweden,"Outokumpu Stainless AB, Avesta",AVESTA,60.1351,16.1803,0.123,NO-West,387.3635
+steel 2(b),Sweden,SSAB EMEA AB i Luleå,LULEÅ,65.562,22.2143,1.56,SE-North,4.2716
+steel 2(b),Sweden,SSAB EMEA AB Oxelösund,OXELÖSUND,58.677,17.1256,1.63,NO-West,434.7006
+steel 2(b),Spain,ACERINOX EUROPA S.A.U.,"Barrios, Los",36.1839,-5.4212,0.182,outside,717.9406
+steel 2(b),Finland,"Outokumpu Chrome Oy, Tornion tehtaat",Tornio,65.7689,24.1941,0.634,SE-North,93.211
+steel 2(b),Italy,Acciaieria Arvedi S.p.A.,CREMONA,45.1494,9.9469,0.3686,IT-North,38.8259
+steel 2(b),Austria,voestalpine Stahl Donawitz GmbH,Donawitz,47.379,15.067,2.78,PL-Silesia,433.8651
+steel 2(b),Spain,ARCELORMITTAL ESPAÑA - PLANTA SIDERÚRGICA DE AVILÉS Y GIJÓN,GRANDA (LA),43.5561,-5.9111,4.81,ES-Iberia,464.2791
+steel 2(b),Poland,"Celsa ""Huta Ostrowiec"" Sp.o.o.",Ostrowiec Świętokrzyski,50.9482,21.4451,0.117,PL-Silesia,186.9263
+steel 2(b),Sweden,Höganäs Sweden AB,HÖGANÄS,56.2087,12.5474,0.176,DE-North,332.6112
+steel 2(b),Germany,ArcelorMittal Hochfeld GmbH,Duisburg,51.4639,6.7452,0.214,DE-West,8.0565
+steel 2(b),Poland,CMC Poland Sp. z o.o.,Zawiercie,50.4942,19.4552,0.236,PL-Silesia,38.8223
+ammonia (name filter),France,LAT NITROGEN FRANCE,MORMANT,48.6105,2.8856,0.214,FR-North,269.0011
+ammonia (name filter),France,YARA FRANCE,GONFREVILLE L ORCHER,49.5052,0.2099,0.752,FR-North,222.9369
+ammonia (name filter),Germany,YARA Brunsbüttel GmbH ,Büttel,53.9107,9.2078,0.742,DE-North,62.4969
+merchant hydrogen or other 4(b)(i),Germany,Dow Deutschland Anlagenges. mbH Werk Stade,Stade,53.6404,9.5041,0.549,DE-North,33.0115
+merchant hydrogen or other 4(b)(i),Germany,Linde Gas Produktionsgesellschaft mbH & Co. KG ,Leuna,51.3226,12.0021,0.244,DE-North,287.2503
+merchant hydrogen or other 4(b)(i),Germany,Covestro Deutschland AG ,Brunsbüttel,53.902,9.1866,0.11,DE-North,63.1473
+merchant hydrogen or other 4(b)(i),Spain,AIR LIQUIDE IBERICA DE GASES,ARTEIXO,43.3157,-8.4779,0.195,ES-Iberia,650.0066
+merchant hydrogen or other 4(b)(i),Belgium,AIR LIQUIDE LARGE INDUSTRY,Antwerpen,51.2913,4.3269,0.202,NL-Rotterdam,69.4703
+merchant hydrogen or other 4(b)(i),Netherlands,Air Products HyCO 4 (Botlekweg),Botlek Rotterdam,51.87,4.2874,0.502,NL-Rotterdam,13.2896
+merchant hydrogen or other 4(b)(i),Netherlands,Air Products Nederland BV (Botlek),Botlek Rotterdam,51.8789,4.2593,0.107,NL-Rotterdam,11.183
+merchant hydrogen or other 4(b)(i),Germany,Linde Gas Produktionsgesellschaft mbH & Co. KG / TOTAL ,Leuna,51.2901,11.9958,0.182,DE-North,290.2623
+merchant hydrogen or other 4(b)(i),Spain,AIR LIQUIDE IBERICA DE GASES S.L.U.,PUERTOLLANO,38.6673,-4.0571,0.279,ES-Iberia,422.2812
+merchant hydrogen or other 4(b)(i),Spain,HYCO (LA POBLA DE MAFUMENT),"Pobla de Mafumet, La",41.1862,1.2313,0.303,ES-Iberia,183.6433
+merchant hydrogen or other 4(b)(i),France,AIR LIQUIDE HYDROGENE,NOTRE DAME DE GRAVENCHON,49.4884,0.5652,0.215,FR-North,208.4835
+merchant hydrogen or other 4(b)(i),France,LINDE GAS SA,CHALAMPE,47.8265,7.5459,0.109,IT-North,348.1397
+merchant hydrogen or other 4(b)(i),France,AIR LIQUIDE HYDROGENE,MARTIGUES,43.3894,5.026,0.134,IT-North,399.038
+merchant hydrogen or other 4(b)(i),Belgium,AIR LIQUIDE LARGE INDUSTRY,Antwerpen,51.3416,4.2876,0.734,NL-Rotterdam,63.4255
+merchant hydrogen or other 4(b)(i),Netherlands,Air Liquide Industrie BV,Botlek Rotterdam,51.8852,4.2563,0.6,NL-Rotterdam,10.8477
+merchant hydrogen or other 4(b)(i),Finland,"Oy Linde Gas Ab, Kilpilahden vedyntuotantolaitos",Porvoo,60.3177,25.5167,0.16,SE-North,610.621

@@ -1,0 +1,10 @@
+region,steel_facilities,steel_co2_mt,steel_mt_implied,ammonia_facilities,ammonia_co2_mt,ammonia_mt_implied,merchant_hydrogen_facilities,merchant_hydrogen_co2_mt
+NO-West,2,1.753,0.9226,0,0.0,0.0,0,0.0
+SE-North,3,4.374,2.3021,0,0.0,0.0,1,0.16
+DE-North,6,11.744,6.1811,1,0.742,0.4122,4,1.085
+DE-West,9,7.984,4.2021,0,0.0,0.0,0,0.0
+NL-Rotterdam,3,9.55,5.0263,0,0.0,0.0,5,2.145
+FR-North,0,0.0,0.0,2,0.966,0.5367,1,0.215
+PL-Silesia,9,25.5826,13.4645,0,0.0,0.0,0,0.0
+IT-North,7,8.0454,4.2344,0,0.0,0.0,2,0.243
+ES-Iberia,2,4.94,2.6,0,0.0,0.0,3,0.777

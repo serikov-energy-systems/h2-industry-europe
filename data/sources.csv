@@ -8,3 +8,6 @@ CCS capacity (Mt CO2 per year) and hydrogen potential per region,stylised,assump
 CO2 price 100/150/200 EUR/t; gas 40/35/35 EUR/MWh; electricity 70/60/55 EUR/MWh,assumed,assumption,assumption
 Blast furnace capacity left 80/40/10% of today; scrap-EAF at most 25% of regional steel,assumed,assumption,assumption
 Transport: hydrogen pipeline 4.5 EUR/MWh per 1000 km; steel 25; HBI 12; ammonia 8 EUR/t per 1000 km; distances great-circle x 1.2,assumed,assumption,assumption
+Facility-level CO2 releases 2022 with coordinates (steel 2(b); fertiliser and merchant hydrogen 4(b)(i)),EEA industrial reporting database E-PRTR v15 (F1_4_Air_Releases_Facilities.csv; data share sdi.eea.europa.eu),open data used only as a benchmark (steel implied production is a lower bound; ammonia coverage insufficient),used
+Seasonal hydrogen split of the renewable potential,computed from the same 2023 weather year (April to September against October to March),open data,used
+Seasonal storage cost 8 EUR/MWh moved and regional capacities 0 to 20 TWh a year,assumed,assumption (salt cavern order of magnitude),assumption

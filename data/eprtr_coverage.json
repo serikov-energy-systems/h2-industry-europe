@@ -1,0 +1,10 @@
+{
+  "steel_total_co2_mt_all_europe": 82.078188744,
+  "steel_in_domain_co2_mt": 73.973063874,
+  "ammonia_total_co2_mt": 1.708,
+  "ammonia_in_domain_co2_mt": 1.708,
+  "year": 2022,
+  "steel_intensity": 1.9,
+  "ammonia_intensity": 1.8,
+  "radius_km": 700.0
+}
