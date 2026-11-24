@@ -25,7 +25,8 @@ for (y, pw), v in res.items():
     summ.append({"year": y, "pathway": pw, "cost_meur": v["cost_meur"], "co2_mt": v["co2_mt"],
                  "h2_use_twh": sum(v["h2_use_twh"].values()), "steel_mt": steel, "traded_steel_mt": traded["steel"],
                  "traded_hbi_mt": traded["hbi"], "traded_nh3_mt": traded["nh3"], "h2_pipeline_twh": traded["h2"],
-                 "h2_pipeline_twh_1000km": h2km, "storage_twh": v.get("storage_twh", 0.0), "captured_mt": tot["ngdri"] * m.TECH["ngdri"]["cap"] + tot["nh3_ccs"] * m.TECH["nh3_ccs"]["cap"], **{f"{t}_mt": x for t, x in tot.items()}})
+                 "h2_pipeline_twh_1000km": h2km, "storage_twh": v.get("storage_twh", 0.0), "captured_mt": tot["ngdri"] * m.TECH["ngdri"]["cap"] + tot["nh3_ccs"] * m.TECH["nh3_ccs"]["cap"] + sum(v["h2_blue_twh"].values()) * m.BLUE["cap"],
+                 "h2_blue_twh": sum(v["h2_blue_twh"].values()), "h2_grid_twh": sum(v["h2_grid_twh"].values()), "co2_to_norway_mt": v["co2_to_norway_mt"], **{f"{t}_mt": x for t, x in tot.items()}})
     for r in m.REGIONS:
         detail.append({"year": y, "pathway": pw, "region": r, "h2_prod_twh": v["h2_prod_twh"][r], "h2_use_twh": v["h2_use_twh"][r],
                        "steel_demand_mt": m.STEEL_MT[r],

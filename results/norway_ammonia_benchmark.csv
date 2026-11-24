@@ -1,0 +1,7 @@
+case,year,pathway,cost_meur,co2_mt,no_h2_twh_total,no_h2_grid_twh,no_h2_blue_twh,no_h2_renewable_twh,no_h2_use_twh,export_h2_twh,export_nh3_mt,export_hbi_mt,export_steel_mt,import_hbi_mt,co2_stored_in_norway_from_abroad_mt
+NH3 0.27 Mt,2030,all options,32111.399045547456,36.0023675,0.34875,0.0,0.34875,0.0,0.34875,0.0,0.0,0.0,0.0,0.0,0.0
+NH3 0.27 Mt,2030,"all options, CO2 shipped to Norway",32111.399045547456,36.0023675,0.34875,0.0,0.34875,0.0,0.34875,0.0,0.0,0.0,0.0,0.0,0.0
+NH3 0.27 Mt,2040,all options,31357.64884557458,7.4995925,3.83625,0.0,3.83625,0.0,0.34875,3.4875,0.0,0.0,0.0,0.0,0.0
+NH3 0.27 Mt,2040,"all options, CO2 shipped to Norway",31353.817770983635,7.4995925,0.34875,0.0,0.34875,0.0,0.34875,0.0,0.0,0.0,0.0,0.0,0.8265375
+NH3 0.27 Mt,2050,all options,31489.740970574578,7.4995925,3.83625,0.0,3.83625,0.0,0.34875,3.4875,0.0,0.0,0.0,0.0,0.0
+NH3 0.27 Mt,2050,"all options, CO2 shipped to Norway",31485.909895983634,7.4995925,0.34875,0.0,0.34875,0.0,0.34875,0.0,0.0,0.0,0.0,0.0,0.8265375

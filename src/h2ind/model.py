@@ -47,6 +47,19 @@ STORAGE_CAP_TWH = dict(zip(REGIONS, [0.0, 0.5, 20.0, 5.0, 10.0, 5.0, 5.0, 3.0, 5
 H2_TRANSPORT = 4.5          # EUR/MWh H2 per 1000 km by pipeline (assumed)
 SHIP = {"steel": 25.0, "hbi": 12.0, "nh3": 8.0}   # EUR/t per 1000 km (assumed)
 
+# v0.3: Norway (switch NORWAY_V03 = False reproduces the v0.2 results)
+NORWAY_V03 = True
+BLUE_ON = True               # hydrogen from reforming with CCS as an option (new in v0.3; upstream methane emissions of gas are NOT counted)
+ELEC_NO = 45.0               # EUR/MWh, mean ENTSO-E day-ahead price of NO2 2023-2025 (replaced from data/no_prices.json when present)
+_pf = ROOT / "data" / "no_prices.json"
+if _pf.exists():
+    ELEC_NO = json.loads(_pf.read_text())["NO2_mean_2023_2025"]
+GRID_H2_CAP_TWH = {"NO-West": 5.0}   # hydrogen from hydropower grid electricity, TWh of H2 per year (assumed surplus, sensitivity in run_all)
+EL_HOURS = 8000.0            # full-load hours of grid electrolysis (assumed)
+BLUE = dict(cost=15.0, gas=1.3, co2=0.026, cap=0.237, ccs=60.0)   # hydrogen from reforming with CCS per MWh H2 (assumed, 90% capture)
+CO2_SHIP = 15.0              # EUR per t CO2 per 1000 km, ship or pipeline (assumed)
+NO_STORAGE_MT = {2030: 5.0, 2040: 20.0, 2050: 20.0}   # CO2 storage in Norway available to imports: Northern Lights 1.5 Mt a year in operation and at least 5 Mt from 2028 (operator); later years assumed
+
 # unit data per tonne of product: (cost EUR/t excluding listed energy, H2 MWh, electricity MWh, gas MWh, CO2 emitted t, CO2 captured t)
 TECH = {
     "bf":      dict(cost=330.0, h2=0.0, el=0.0, gas=0.0, co2=1.9, cap=0.0),
@@ -104,12 +117,19 @@ class Pathway:
     hydrogen: bool = True
     h2_trade: bool = True
     storage: bool = False
+    co2_trade: bool = False       # captured CO2 may be shipped to storage in NO-West
 
 
 PATHWAYS = [Pathway("all options"), Pathway("hydrogen pathway (no CCS)", ccs=False), Pathway("CCS pathway (no electrolytic hydrogen)", hydrogen=False),
             Pathway("hydrogen without pipelines", h2_trade=False),
             Pathway("all options, seasonal storage", storage=True), Pathway("hydrogen pathway (no CCS), seasonal storage", ccs=False, storage=True),
-            Pathway("hydrogen without pipelines, seasonal storage", h2_trade=False, storage=True)]
+            Pathway("hydrogen without pipelines, seasonal storage", h2_trade=False, storage=True),
+            Pathway("all options, CO2 shipped to Norway", co2_trade=True),
+            Pathway("CCS pathway (no electrolytic hydrogen), CO2 shipped to Norway", hydrogen=False, co2_trade=True)]
+
+
+def elec_price(year: int, r: str) -> float:
+    return ELEC_NO if (NORWAY_V03 and r == "NO-West") else ELEC[year]
 
 
 class Builder:
@@ -134,7 +154,7 @@ def solve_year(year: int, pw: Pathway, lc: pd.DataFrame, dist: pd.DataFrame) -> 
             if not pw.hydrogen and t in ("h2dri", "dri_hbi", "nh3_el"):
                 t_ok = False
             d = TECH[t]
-            c = d["cost"] + d["el"] * ELEC[year] + d["gas"] * GAS[year] + d["co2"] * CO2_PRICE[year] + d.get("ccs", 0.0) * d["cap"]
+            c = d["cost"] + d["el"] * elec_price(year, r) + d["gas"] * GAS[year] + d["co2"] * CO2_PRICE[year] + d.get("ccs", 0.0) * d["cap"]
             idx[(t, r)] = B.var(f"{t}@{r}", c, np.inf if t_ok else 0.0)
         for si, sname in enumerate(("summer", "winter")):
             share = lc.loc[r, "share_summer" if si == 0 else "share_winter"]
@@ -142,7 +162,13 @@ def solve_year(year: int, pw: Pathway, lc: pd.DataFrame, dist: pd.DataFrame) -> 
         sc = STORAGE_CAP_TWH[r] * 1e6 if (pw.storage and pw.hydrogen) else 0.0
         idx[("st_sw", r)] = B.var(f"store summer->winter@{r}", STORAGE_COST, sc)
         idx[("st_ws", r)] = B.var(f"store winter->summer@{r}", STORAGE_COST, sc)
-        idx[("co2c", r)] = B.var(f"co2cap@{r}", 0.0, CCS_CAP_MT[r] * 1e6 if pw.ccs else 0.0)
+        cap_r = CCS_CAP_MT[r] if not (NORWAY_V03 and pw.co2_trade and r == "NO-West") else min(CCS_CAP_MT[r], NO_STORAGE_MT[year])
+        idx[("co2c", r)] = B.var(f"co2cap@{r}", 0.0, cap_r * 1e6 if pw.ccs else 0.0)
+        if NORWAY_V03:
+            gc = elec_price(year, r) / EL_EFF + (ANN + OM) * CAPEX[year]["el"] / (EL_HOURS * EL_EFF / 1000.0)
+            idx[("h2g", r)] = B.var(f"h2 from grid@{r}", gc, GRID_H2_CAP_TWH.get(r, 0.0) * 1e6 if pw.hydrogen else 0.0)
+            bc = BLUE["cost"] + BLUE["gas"] * GAS[year] + BLUE["co2"] * CO2_PRICE[year] + BLUE["ccs"] * BLUE["cap"]
+            idx[("h2b", r)] = B.var(f"h2 blue@{r}", bc, np.inf if (pw.ccs and BLUE_ON) else 0.0)
     flows = {}
     for p in ("steel", "hbi", "nh3", "h2"):
         for a in R:
@@ -155,6 +181,10 @@ def solve_year(year: int, pw: Pathway, lc: pd.DataFrame, dist: pd.DataFrame) -> 
                         flows[(p, a, b, si)] = B.var(f"{p}:{a}->{b}:{si}", c)
                 else:
                     flows[(p, a, b)] = B.var(f"{p}:{a}->{b}", c)
+    if NORWAY_V03 and pw.co2_trade:
+        for a in R:
+            if a != "NO-West":
+                flows[("co2", a, "NO-West")] = B.var(f"co2:{a}->NO-West", CO2_SHIP * dist.loc[a, "NO-West"] / 1000.0)
     n = len(B.names)
     A_eq, b_eq, A_ub, b_ub = [], [], [], []
 
@@ -185,13 +215,26 @@ def solve_year(year: int, pw: Pathway, lc: pd.DataFrame, dist: pd.DataFrame) -> 
             for a in R:
                 if a != r and pw.h2_trade:
                     h[flows[("h2", a, r, si)]] = 1.0; h[flows[("h2", r, a, si)]] = -1.0
+            if NORWAY_V03:
+                h[idx[("h2g", r)]] = 0.5
+                h[idx[("h2b", r)]] = 0.5
             sgn = 1.0 if si == 1 else -1.0       # summer -> winter: leaves the summer balance, enters the winter balance
             h[idx[("st_sw", r)]] = sgn
             h[idx[("st_ws", r)]] = -sgn
             row(h, 0.0)
         row({idx[("bf", r)]: 1.0}, BF_CAP[year] * STEEL_MT[r] * 1e6, eq=False)
         row({idx[("scrap", r)]: 1.0}, SCRAP_SHARE * STEEL_MT[r] * 1e6, eq=False)
-        row({idx[("ngdri", r)]: TECH["ngdri"]["cap"], idx[("nh3_ccs", r)]: TECH["nh3_ccs"]["cap"], idx[("co2c", r)]: -1.0}, 0.0, eq=False)
+        cr = {idx[("ngdri", r)]: TECH["ngdri"]["cap"], idx[("nh3_ccs", r)]: TECH["nh3_ccs"]["cap"], idx[("co2c", r)]: -1.0}
+        if NORWAY_V03:
+            cr[idx[("h2b", r)]] = BLUE["cap"]
+            if pw.co2_trade:
+                if r == "NO-West":
+                    for a in R:
+                        if a != r:
+                            cr[flows[("co2", a, r)]] = 1.0
+                else:
+                    cr[flows[("co2", r, "NO-West")]] = -1.0
+        row(cr, 0.0, eq=False)
     c = np.array(B.cost); ub = np.array(B.ub)
     def mat(rows_):
         M = lil_matrix((len(rows_), n))
@@ -205,16 +248,21 @@ def solve_year(year: int, pw: Pathway, lc: pd.DataFrame, dist: pd.DataFrame) -> 
     x = res.x
     prod = {t: {r: x[idx[(t, r)]] / 1e6 for r in R} for t in TECH}
     h2_use = {r: sum(TECH[t]["h2"] * x[idx[(t, r)]] for t in ("h2dri", "dri_hbi", "nh3_el")) / 1e6 for r in R}   # TWh
-    h2_prod = {r: (x[idx[("h2", r, 0)]] + x[idx[("h2", r, 1)]]) / 1e6 for r in R}
+    h2_prod = {r: (x[idx[("h2", r, 0)]] + x[idx[("h2", r, 1)]] + (x[idx[("h2g", r)]] + x[idx[("h2b", r)]] if NORWAY_V03 else 0.0)) / 1e6 for r in R}
     storage_twh = sum(x[idx[(k, r)]] for k in ("st_sw", "st_ws") for r in R) / 1e6
     co2 = sum((TECH[t]["co2"]) * x[idx[(t, r)]] for t in TECH for r in R) / 1e6   # Mt emitted
+    h2g = {r: x[idx[("h2g", r)]] / 1e6 for r in R} if NORWAY_V03 else {r: 0.0 for r in R}
+    h2b = {r: x[idx[("h2b", r)]] / 1e6 for r in R} if NORWAY_V03 else {r: 0.0 for r in R}
+    co2 += sum(BLUE["co2"] * h2b[r] for r in R)
+    co2_in_no = sum(x[v] for k, v in flows.items() if k[0] == "co2") / 1e6
     flows_out = {}
     for k, v in flows.items():
         kk = k[:3]
         flows_out[kk] = flows_out.get(kk, 0.0) + x[v]
     flows_out = {k: v for k, v in flows_out.items() if v > 1.0}
     return {"status": 0, "cost_meur": res.fun / 1e6, "co2_mt": co2, "prod": prod, "h2_use_twh": h2_use, "h2_prod_twh": h2_prod,
-            "flows": flows_out, "storage_twh": storage_twh, "captured_mt": sum(x[idx[("co2c", r)]] for r in R) / 1e6}
+            "flows": flows_out, "storage_twh": storage_twh, "captured_mt": sum(x[idx[("co2c", r)]] for r in R) / 1e6,
+            "h2_grid_twh": h2g, "h2_blue_twh": h2b, "co2_to_norway_mt": co2_in_no}
 
 
 def run() -> dict:

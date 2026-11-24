@@ -11,3 +11,7 @@ Transport: hydrogen pipeline 4.5 EUR/MWh per 1000 km; steel 25; HBI 12; ammonia 
 Facility-level CO2 releases 2022 with coordinates (steel 2(b); fertiliser and merchant hydrogen 4(b)(i)),EEA industrial reporting database E-PRTR v15 (F1_4_Air_Releases_Facilities.csv; data share sdi.eea.europa.eu),open data used only as a benchmark (steel implied production is a lower bound; ammonia coverage insufficient),used
 Seasonal hydrogen split of the renewable potential,computed from the same 2023 weather year (April to September against October to March),open data,used
 Seasonal storage cost 8 EUR/MWh moved and regional capacities 0 to 20 TWh a year,assumed,assumption (salt cavern order of magnitude),assumption
+Day-ahead price of NO2 (65.8 EUR/MWh) and NO1 (57.9 EUR/MWh) 2023-2025,ENTSO-E Transparency Platform,open data,used
+Facility-level CO2 of 65 Norwegian installations 2017,EEA industrial reporting database E-PRTR (F1_4_Air_Releases_Facilities.csv),open data,used (benchmark)
+Northern Lights CO2 storage 1.5 Mt a year in operation and at least 5 Mt from 2028,operator and project partner press releases (Equinor; TotalEnergies; Northern Lights),published information,used for the 2030 limit; 20 Mt in 2040 and 2050 assumed
+"Hydrogen from reforming with CCS (15 EUR/MWh; 1.3 MWh gas; 90% capture); grid hydrogen limit 5 TWh; CO2 shipping 15 EUR/t per 1000 km",assumed,assumption,assumption

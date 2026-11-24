@@ -9,7 +9,7 @@ RES = m.run()
 def test_all_solved_and_restrictions_never_cheaper():
     for y in m.YEARS:
         base = RES[(y, "all options")]["cost_meur"]
-        for pw in m.PATHWAYS[1:]:
+        for pw in [p for p in m.PATHWAYS[1:] if not p.co2_trade]:
             r = RES[(y, pw.name)]
             assert r["status"] == 0
             if not pw.storage:
@@ -31,9 +31,11 @@ def test_demand_and_balances():
 def test_capacity_limits_respected():
     for (y, pw), v in RES.items():
         for r in m.REGIONS:
-            assert v["h2_prod_twh"][r] <= m.H2_CAP_TWH[r] + 1e-6
-            captured = v["prod"]["ngdri"][r] * 1.0 + v["prod"]["nh3_ccs"][r] * 1.5
-            assert captured <= m.CCS_CAP_MT[r] + 1e-6
+            assert v["h2_prod_twh"][r] - v["h2_grid_twh"][r] - v["h2_blue_twh"][r] <= m.H2_CAP_TWH[r] + 1e-6
+            assert v["h2_grid_twh"][r] <= m.GRID_H2_CAP_TWH.get(r, 0.0) + 1e-6
+            captured = v["prod"]["ngdri"][r] * 1.0 + v["prod"]["nh3_ccs"][r] * 1.5 + v["h2_blue_twh"][r] * m.BLUE["cap"]
+            if (y, pw) and "shipped" not in pw:
+                assert captured <= m.CCS_CAP_MT[r] + 1e-6
             assert v["prod"]["bf"][r] <= m.BF_CAP[y] * m.STEEL_MT[r] + 1e-6
             assert v["prod"]["scrap"][r] <= m.SCRAP_SHARE * m.STEEL_MT[r] + 1e-6
 
@@ -65,3 +67,39 @@ def test_storage_never_raises_cost_and_balances_seasons():
             for r in m.REGIONS:
                 pass
         assert RES[(y, "hydrogen without pipelines, seasonal storage")]["storage_twh"] <= sum(m.STORAGE_CAP_TWH.values()) * 2 + 1e-6
+
+
+def test_co2_to_norway_never_raises_cost_and_respects_storage():
+    for y in m.YEARS:
+        for a, b in [("all options", "all options, CO2 shipped to Norway"),
+                     ("CCS pathway (no electrolytic hydrogen)", "CCS pathway (no electrolytic hydrogen), CO2 shipped to Norway")]:
+            assert RES[(y, b)]["cost_meur"] <= RES[(y, a)]["cost_meur"] + 1e-6
+            assert RES[(y, b)]["co2_to_norway_mt"] <= m.NO_STORAGE_MT[y] + 1e-6
+            assert RES[(y, a)]["co2_to_norway_mt"] == 0.0
+
+
+def test_v02_results_reproduced_with_norway_switch_off():
+    import pandas as pd
+    old = pd.read_csv(m.ROOT / "results" / "v0_2" / "pathway_summary.csv")
+    m.NORWAY_V03 = False
+    try:
+        for _, r in old.iterrows():
+            pw = [p for p in m.PATHWAYS if p.name == r.pathway][0]
+            v = m.solve_year(int(r.year), pw, m.lcoh(int(r.year), m.load_weather()), m.distances())
+            assert v["cost_meur"] == pytest.approx(r.cost_meur, abs=1e-3)
+    finally:
+        m.NORWAY_V03 = True
+
+
+def test_blue_hydrogen_switch_and_balance():
+    w, d = m.load_weather(), m.distances()
+    pw = [p for p in m.PATHWAYS if p.name == "all options"][0]
+    lc = m.lcoh(2050, w)
+    on = m.solve_year(2050, pw, lc, d)
+    m.BLUE_ON = False
+    try:
+        off = m.solve_year(2050, pw, lc, d)
+    finally:
+        m.BLUE_ON = True
+    assert sum(off["h2_blue_twh"].values()) == 0.0
+    assert off["cost_meur"] >= on["cost_meur"] - 1e-6
